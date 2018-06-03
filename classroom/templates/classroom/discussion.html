@@ -1,0 +1,40 @@
+
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Discussion</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    n<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4>Pathshala</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#section1">Home</a></li>
+        <li><a href="#section2">Syllabus</a></li>
+        <li class="active"><a href="#section3">Discussion</a></li>
+        <li><a href="#section3">Assignment</a></li>
+        <li><a href="#section3">Course Materials</a></li>
+        <li><a href="#section4">About</a></li>
+      </ul>
+    </div>
+	<h1>Recent posts</h1>
+	<div class="posts">
+		{% for post in posts %}
+		  <div class="col-sm-5 post">
+             <h2>{{post.title}}</h2>
+             <p>{{post.snippet}}</p>
+             <p>{{post.date}}</p>
+             <h2><a href="#"><small>read more</small> </a></h2>
+		  </div>
+		
+	</div>
+		{% endfor %}
+
+</body>
+</html>
