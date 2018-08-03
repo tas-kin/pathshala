@@ -5,11 +5,19 @@
 <head>
 	<meta charset="utf-8">
 	<title>Discussion</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    n<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <body>
+  <nav>
+    <ul>
+      <li>
+        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+                 <button type="submit"> logout </button>
+        </form>
+      </li>
+    </ul>
+  </nav>
 	<div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
@@ -23,18 +31,21 @@
         <li><a href="#section4">About</a></li>
       </ul>
     </div>
-	<h1>Recent posts</h1>
+	
 	<div class="posts">
+    <h1>Recent posts</h1>
 		{% for post in posts %}
 		  <div class="col-sm-5 post">
              <h2>{{post.title}}</h2>
              <p>{{post.snippet}}</p>
              <p>{{post.date}}</p>
-             <h2><a href="#"><small>read more</small> </a></h2>
+             <h2><a href="{% url 'classroom:detail' slug=post.slug %}"<small>read more</small> </a></h2>
 		  </div>
 		
 	</div>
 		{% endfor %}
-
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 </html>

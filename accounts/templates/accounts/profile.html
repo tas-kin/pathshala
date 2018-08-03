@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>profile</title>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li>
+				<form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+				{% csrf_token %}
+                 <button type="submit"> logout </button>
+				</form>
+			</li>
+		</ul>
+	</nav>
+	<div class="container">
+	<h1>profile</h1>
+	<p>usernaeme: {{user.username}}</p>
+	<p>First name: {{user.first_name}}</p>
+	<p>Last name: {{user.last_name}}</p>
+	<p>Email: {{user.email}}</p>
+	</div>
+
+</body>
+</html>
